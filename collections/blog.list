@@ -1,0 +1,67 @@
+<script>Y.use('squarespace-social-buttons')</script> 
+
+{.repeated section items}
+
+	<article class="hentry {.repeated section categories}category-{@}{.alternates with} {.end} {.repeated section tags}tag-{@}{.alternates with} {.end} {.section author}author-{login}{.end} post-type-{recordTypeLabel} article-index-{@index}" id="article-id-{id}">
+	
+		<header>
+			{.link?}
+				{.section title}<h1 class="link-block"><a href="{url}" target="_blank">{@}</a></h1>{.end}
+			{.or}	
+				{.section title}<h1 class="entry-title"><a href="{fullUrl}">{@}</a></h1>{.end}
+			{.end}
+			<div class="meta">
+				{.section author}<span class="author">by <a href="{fullUrl}?author={id}">{displayName}</a></span>{.end} 
+				<span class="date"><time class="published" datetime="{addedOn|date %F}">{addedOn|timesince}</time></span>
+			</div>
+			<div class="hanging-date"><span class="hanging-date-month">{addedOn|date %b}</span><span class="hanging-date-day">{addedOn|date %d}</span></div>
+		</header>
+		
+		{.if assetUrl}
+			<figure class="main-image">
+				<a href="{fullUrl}"><img src="{assetUrl}?format=1000w" {@|image-meta} alt="" /></a>
+			</figure>
+		{.end}
+		
+		<section>
+			{.quote?}
+				{.if quote}<div class="body"><blockquote><p><span class="quote-left">&ldquo;</span>{quote}<span class="quote-right">&rdquo;</span></p></blockquote>{.section source}<span class="source">&mdash; {@}</span>{.end}</div>{.end}
+			{.end}
+			
+			{.excerpt?}
+				<div class="body entry-content">{excerpt} <a class="read-more" href="{fullUrl}">Read More</a></div>
+			{.or}
+				{.section body}<div class="body entry-content">{@}</div>{.end}
+			{.end}
+		</section>
+		
+		<footer>
+			<div class="meta">
+				{.section publicCommentCount}<span class="comments"><a href="{fullUrl}#comments-{id}">{@} Comment{@|pluralize}</a></span>{.end}
+				{.section tags}<span class="tags">tags: {.repeated section @}<a href="?tag={@}" rel="tag">{@}</a>{.alternates with}, {.end}</span>{.end}
+				{.section categories}<div class="categories">categories: {.repeated section @}<a href="?category={@}" rel="tag">{@}</a>{.alternates with}, {.end}</div>{.end}
+				{.link?}<a href="{fullUrl}">Permalink</a>{.end}{.quote?}<a href="{fullUrl}">Permalink</a>{.or}{.section source}<div class="source">Source: {@}</div>{.end}{.end}
+				<squarespace:social-share title="{title}" fullUrl="{fullUrl}" />
+			</div>
+		</footer>
+		
+	</article>
+
+{.or}
+
+	<div class="empty-page-message">
+		<h2>Hmm&#8230; an empty blog. That&#8217;s not good.</h2>
+		<p>If you're seeing this, your blog is completely devoid of content. Why not take a moment and <strong>Add a Post</strong>?</p>
+	</div>
+
+{.end}
+
+
+{.section pagination}
+	<nav class="pagination">
+		<ul>
+			{.section prevPage}<li class="prev"><a href="?page={@}">Previous Page</a></li>{.end}
+			{.section nextPage}<li class="next"><a href="?page={@}">Next Page</a></li>{.end}
+		</ul>
+	</nav>
+{.end}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, maximum-scale=1.0">
+		
+		{squarespace.headers}
+
+	</head>
+	<body id="{squarespace.page-id}" class="{squarespace.page-classes}">
+	
+		<div id="canvasWrapper">
+			<div id="canvas">
+			
+				<div id="pageHeaderWrapper">
+					<div id="pageHeader">
+					
+						<header id="header">
+							
+							{.section website}
+							<div id="siteTitle">
+								<h1 class="logo">
+									<a href="/">
+									{.if logoImageUrl}
+										<img src="{logoImageUrl}?format=300w" alt="{siteTitle}" />
+									{.or}
+										{siteTitle}
+									{.end}
+									</a>
+								</h1>
+								{.section siteTagLine}
+									<p class="logo-subtitle">{@}</p>
+								{.end}
+							</div>
+							{.end}
+							
+							<squarespace:navigation navigationId="mainNav" template="navigation" role="navigation" />
+							
+						</header>
+						
+					</div>
+				</div><!-- pageHeaderWrapper -->
+				
+				<div id="pageBodyWrapper">
+					<div id="pageBody">
+						
+						<div id="contentWrapper">
+							<div id="content">
+					  			<section id="page" class="hfeed" role="main">
+									{squarespace.main-content}
+								</section>
+							</div>
+						</div><!-- contentWrapper -->
+					
+						<div id="sidebarWrapper" class="verticalNavigationBarWrapper">
+							<section id="sidebar" class="verticalNavigationBar">
+								<squarespace:block-field id="sidebarBlocks" />
+							</section>
+						</div><!-- sidebarWrapper -->
+						
+					</div>
+				</div><!-- pageBodyWrapper -->
+				
+			    <div id="pageFooterWrapper">
+				    <div id="pageFooter">
+				    
+						<footer id="footer">
+							<squarespace:block-field id="footerBlocks" />
+						</footer>
+						
+				    </div>
+			    </div><!-- pageFooterWrapper -->
+				
+			</div>
+		</div><!-- canvasWrapper -->
+		
+		<div class="clearer" id="bodyClearer"></div>
+  
+		{squarespace.footers}
+		
+	</body>
+</html>

@@ -1,0 +1,18 @@
+<!--{@|json-pretty}-->
+<nav class="horizontalNavigationBar">
+{.section items}
+	<ul>
+	{.repeated section @}
+	
+		{.if collection}
+			<li class="{.if collection.typeLabel} {collection.typeLabel}-collection{.end}{.if active} active-link{.end}" id="pageName-{collection.urlId}"><a href="{collection.fullUrl}">{collection.title}</a></li>
+		{.end}
+	
+ 	  	{.if externalLink}
+  			<li class="{.if active}active-link{.end}"><a {.if externalLink.newWindow}target="_blank"{.end} href="{externalLink.url}">{externalLink.title}</a></li>
+  	  	{.end}
+
+	{.end}
+	</ul>
+{.end}
+</nav>
